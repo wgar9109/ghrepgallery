@@ -35,14 +35,13 @@ const displayUserInfo = function (data) {
 
 const gitRepos = async function () {
     const fetchRepos = await 
-    fetch(`https://api.github.com/users.${username}/repos?
-    sort=updated&per_page=100`);
+    fetch(`https://api.github.com/users.wgar9109/repos?%20%20%20%20sort=updated&per_page=100`);
     const repoData = await fetchRepos.json();
     displayRepos(repoData);
 };
 
 const displayRepos = function (repos) {
-    for (const rpeo of repos) {
+    for (const repo of repos) {
         const repoItem = document.createElement("li");
         repoItem.classItem.add("repo");
         repoItem.innerHTML = `<h3>${repo.name}</h3>`;
@@ -73,7 +72,7 @@ const getRepoInfo = async function (repoName) {
         languages.push(language);
     }
     
-    displayRepoInfo(repoInfo, language);
+    displayRepoInfo(repoInfo, languages);
 };
 
 const displayRepoInfo = function (repoInfo, languages) {
@@ -87,6 +86,6 @@ const displayRepoInfo = function (repoInfo, languages) {
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
     <a class="visit" href="${repoInfo.html_url}"
-    target+"_blank" rel="noreferrer noopener">View Repo on GitHub!!</a>`;
+    target="_blank" rel="noreferrer noopener">View Repo on GitHub!!</a>`;
     repoData.append(div);
 };
