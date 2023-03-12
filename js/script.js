@@ -4,6 +4,8 @@ const username = "wgar9109";
 const repoList = document.querySelector(".repo-list");
 const allReposContainer = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
+const viewReposButton = document.querySelector(".view-repos");
+const filterInput = document.querySelector(".filter-repos");
 
 const gitUserInfo = async function () {
     const userInfo = await
@@ -41,10 +43,13 @@ const gitRepos = async function (username) {
 };
 
 const displayRepos = function (repos) {
-    filterInput.classList.remove("hide");
     for (const repo of repos) {
         const repoItem = document.createElement("li");
         repoItem.classList.add("repo");
+        repoItem.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>Main language: ${repo.language}</p>
+        `;
         repoItem.innerHTML = `<h3>${repo.name}</h3>`;
         repoList.append(repoItem);
     }
