@@ -1,41 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>GitHub Repo Gallery</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@500&display=swap"
-            rel="stylesheet" />
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossorigin="anonymous" />
-        <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/styles.css" />
-        <script src="js/script.js" defer></script>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Repo Gallery</title>
+    <style>
+        /* This code is temporary */
+        body {
+            background-color: black;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+</head>
 
-    <body>
-        <main class="container">
-            <div class="badge">
-                <div class="circle"></div>
-            </div>
-            <h1><i class="fab fa-github-alt"></i> GitHub Repo Gallery</h1>
-            <section class="intro">
-                <div class="overview"></div>
-            </section>
+<body>
+    <div id="tsparticles"></div>
+    <!-- https://www.jsdelivr.com/package/npm/tsparticles -->
+    <!-- https://github.com/matteobruni/tsparticles -->
+    <!-- The bundle file contains all the necessary scripts, instead of manually including them -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.6/tsparticles.bundle.min.js"></script>
+    <script type="text/javascript">
+        tsParticles.load("tsparticles", {
+            background: {
+                color: "#000", 
+            },
+            interactivity: {
+                events: {
+                    onClick: {
+                        enable: true,
+                        mode:"push"
+                    }
+                }
+            }
+            particles: {
+                links: {
+                    enable: true // this enables links between particles
+                    distance: 150,
+                },
+                move: {
+                    enable: true // this makes particles move
+                    speed: { min: 2, max: 3 }
+                },
+                size: {
+                    value: { min: 1, max: 3 } // this sets the size of the particles
+                }
+            }
+        });
+    </script>
+    <main class="container">
+        <div class="badge">
+            <div class="circle"></div>
+        </div>
+        <h1><i class="fab fa-github-alt"></i> GitHub Repo Gallery</h1>
+        <section class="intro">
+            <div class="overview"></div>
+        </section>
 
-            <section class="repos">
-                <input type="text" class="filter-repos hide" placeholder="Search by name" />
-                <ul class="repo-list"></ul>
-            </section>
-            <section class="repo-data hide"></section>
-            <div class="button-container">
-                <button class="view-repos hide">Back to Repo Gallery</button>
-            </div>
-        </main>
-    </body>
+        <section class="repos">
+            <input type="text" class="filter-repos hide" placeholder="Search by name" />
+            <ul class="repo-list"></ul>
+        </section>
+        <section class="repo-data hide"></section>
+        <div class="button-container">
+            <button class="view-repos hide">Back to Repo Gallery</button>
+        </div>
+    </main>
+</body>
 
 </html>
